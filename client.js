@@ -93,8 +93,8 @@ Teams.OnPlayerChangeTeam.Add(function(player){ player.Spawns.Spawn()});
 // делаем игроков неу€звимыми после спавна
 var immortalityTimerName="immortality";
 Spawns.GetContext().OnSpawn.Add(function(player){
-	player.Properties.Immortality.Value=true;
-	timer=player.Timers.Get(immortalityTimerName).Restart(5);
+	Player.Properties.Immortality.Value=true;
+	timer=Player.Timers.Get(immortalityTimerName).Restart(5);
 });
 Timers.OnPlayerTimer.Add(function(timer){
 	if(timer.Id!=immortalityTimerName) return;
