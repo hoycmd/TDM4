@@ -163,12 +163,11 @@ function SetBuildMode()
 	stateProp.Value = BuildModeStateValue;
 	Ui.GetContext().Hint.Value = "Hint/BuildBase";
 	var inventory = Inventory.GetContext();
-	inventory.Main.Value = false;
-	inventory.Secondary.Value = false;
+	inventory.Main.Value = true;
+	inventory.Secondary.Value = true;
 	inventory.Melee.Value = true;
-	inventory.Explosive.Value = false;
+	inventory.Explosive.Value = true;
 	inventory.Build.Value = true;
- inventory.BuildInfinity.Value = true;
 
 	mainTimer.Restart(BuildBaseTime);
 	Spawns.GetContext().enable = true;
@@ -181,19 +180,17 @@ function SetGameMode()
 
 	var inventory = Inventory.GetContext();
 	if (GameMode.Parameters.GetBool("OnlyKnives")) {
-		inventory.Main.Value = false;
-		inventory.Secondary.Value = false;
-		inventory.Melee.Value = true;
-		inventory.Explosive.Value = false;
-		inventory.Build.Value = true;
-	} else {
-		inventory.Main.Value = false;
-		inventory.Secondary.Value = false;
+		inventory.Main.Value = true;
+		inventory.Secondary.Value = true;
 		inventory.Melee.Value = true;
 		inventory.Explosive.Value = true;
-  inventory.ExplosiveInfinity.Value = true;
 		inventory.Build.Value = true;
-  inventory.BuildInfinity.Value = true;
+	} else {
+		inventory.Main.Value = true;
+		inventory.Secondary.Value = true;
+		inventory.Melee.Value = true;
+		inventory.Explosive.Value = true;
+		inventory.Build.Value = true;
 	}
 
 	mainTimer.Restart(GameModeTime);
